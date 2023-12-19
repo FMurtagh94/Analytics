@@ -1,34 +1,51 @@
-#install dplyr & tidyverse
-install.packages("tidyverse")
-install.packages("dplyr")
+#Students : Brian Ruiz Flynn (D00262271) & Fiachra Murtagh (D00155450)
+#getwd()
 
-library(dplyr)
+if(!require("tidyverse"))
+  install.packages("tidyverse")
 library(tidyverse)
 
+if(!require("esquisse"))
+  install.packages("esquisse")
+library(esquisse)
+
+if(!require("dplyr"))
+  install.packages("dplyr")
+library(dplyr)
+
+if (!require("magrittr"))
+  install.packages("magrittr")
+library(magrittr)
+
 Experimental <- read.csv("GROUP_9_2023_GCA_RESULTS_EXPERIMENTAL.csv")
+Control <- read.csv("GROUP_9_2023_GCA_RESULTS_CONTROL.csv")
+#Cleaning up the data based on GAD and STAI ranges only outliers found in Posttrial STAI.
 
-#Cleaning up the data based on GAD and STAI ranges
+#Cleaning Control Group
+Control <- Control %>%
+select(patientID, gender, pretrial_GAD, pretrial_STAI, posttrial_GAD, posttrial_STAI) %>%
+  filter(pretrial_GAD >= 0, pretrial_GAD <= 21,
+         pretrial_STAI >= 20, pretrial_STAI <= 80,
+         posttrial_GAD >= 0, posttrial_GAD <= 21,
+         posttrial_STAI >= 20, posttrial_STAI <= 80) %>%
+  mutate(gender = ifelse(gender == "F" | gender == "f", "female", gender))
+tibble(Control)
 
-remove_outliers_column <- function(column){
-  lower_limit <- 0
-  upper_limit <- 20
-  
-  return(column[column >= lower_limit & column <= upper_limit])
-  
-}
+#esquisser(Control, viewer = "browser")
 
-remove_outliers_column2 <- function(column){
-  lower_limit <- 20
-  upper_limit <- 80
-  
-  return(column[column >= lower_limit & column <= upper_limit])
-  
-}
 
-Experimental$pretrial_GAD_no_outliers <- remove_outliers_column(Experimental$pretrial_GAD)
-Experimental$posttrial_GAD_no_outliers <- remove_outliers_column(Experimental$posttrial_GAD)
-Experimental$pretrial_STAI_no_outliers <- remove_outliers_column(Experimental$pretrial_STAI)
-Experimental$posttrial_STAI_no_outliers <- remove_outliers_column(Experimental$posttrial_STAI)
+
+#---
+
+#Cleaning Experimental Group
+Experimental <- Experimental %>%
+  select(patientID, gender, pretrial_GAD, pretrial_STAI, posttrial_GAD, posttrial_STAI) %>%
+  filter(pretrial_GAD >= 0, pretrial_GAD <= 21,
+         pretrial_STAI >= 20, pretrial_STAI <= 80,
+         posttrial_GAD >= 0, posttrial_GAD <= 21,
+         posttrial_STAI >= 20, posttrial_STAI <= 80) %>%
+  mutate(gender = ifelse(gender == "F" | gender == "f", "female", gender))
+tibble(Experimental)
 
 print(Experimental)
 
