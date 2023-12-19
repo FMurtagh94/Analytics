@@ -47,6 +47,7 @@ Experimental <- Experimental %>%
   mutate(gender = ifelse(gender == "F" | gender == "f", "female", gender))
 tibble(Experimental)
 
+#converting values in csv column to numerical so the cleaning has effect. 
 Control$pretrial_GAD <- as.numeric(Control$pretrial_GAD)
 Control$pretrial_STAI <- as.numeric(Control$pretrial_STAI)
 Control$posttrial_GAD <- as.numeric(Control$posttrial_GAD)
@@ -57,8 +58,9 @@ Experimental$pretrial_STAI <- as.numeric(Experimental$pretrial_STAI)
 Experimental$posttrial_GAD <- as.numeric(Experimental$posttrial_GAD)
 Experimental$posttrial_STAI <- as.numeric(Experimental$posttrial_STAI)
 
+#creating Descriptive data tables and variables to act as reference in future formulas
 
-Experimental_summary_table <- Experimental(
+Experimental_summary_table <- tibble(
   Statistic = c("n1", "Minimum", "Maximum", "1st Quartile", "Median", "3rd Quartile", "Mean", "Variance (n-1)", "Standard deviation (n-1)"),
   pretrial_GAD = c(
     length(Experimental$pretrial_GAD),
@@ -106,8 +108,8 @@ Experimental_summary_table <- Experimental(
   )
 )
 
-Control_summary_table_ <- Control(
-  Statistic = c("Nbr. of observations", "Minimum", "Maximum", "1st Quartile", "Median", "3rd Quartile", "Mean", "Variance (n-1)", "Standard deviation (n-1)"),
+Control_summary_table <- tibble(
+  Statistic = c("n2", "Minimum", "Maximum", "1st Quartile", "Median", "3rd Quartile", "Mean", "Variance (n-1)", "Standard deviation (n-1)"),
   pretrial_GAD = c(
     length(Control$pretrial_GAD),
     min(Control$pretrial_GAD),
@@ -154,3 +156,4 @@ Control_summary_table_ <- Control(
   )
 )
 print(summary_table_control)
+

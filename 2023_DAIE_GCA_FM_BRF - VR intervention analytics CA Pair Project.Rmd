@@ -1,25 +1,49 @@
 ---
 title: "2023_DAIE_GCA_FM_BRF - VR intervention analytics CA Pair Project."
+Authors: "Brian Ruiz Flynn & Fiachra Murtagh"
 output: html_notebook
 ---
+#Abstract
 
-#Introduction
+
+##Introduction
 
 As of 2019, the World Health Organization reported around 301 million global cases of anxiety disorders, characterized by persistent feelings of anxiety and fear accompanied by physical symptoms. While anxiety is a natural response to stress, those with anxiety disorders experience prolonged and worsening symptoms affecting daily life. Triggers for these disorders vary, including environmental factors, genetics, brain chemistry, and medical factors.
 Anxiety disorders encompass various types, such as generalized anxiety disorder, panic disorder, specific phobias, agoraphobia, social anxiety disorder, and separation anxiety disorder. Treatment options involve psychotherapy, behavioural therapy, and medications.
 Virtual Reality (VR) has emerged as a transformative tool in anxiety disorder treatment, providing immersive therapeutic experiences to simulate real-world scenarios in a controlled environment. VR exposure therapy (VRET) gradually exposes individuals to anxiety triggers, aiding habituation and desensitization. Studies, such as Opris et al. (2012) on post-traumatic stress disorder and Maples-Keller et al. (2017) on acrophobia, demonstrate the effectiveness of VRET. Lindner et al. (2017) highlight VR's potential in enhancing public speaking skills for social anxiety disorders. The ongoing integration of VR into therapeutic practices signals its potential to revolutionize anxiety disorder treatment.
 
-##Three types of exposure-based methods(1)
+#Experiment Details
+
+##Three types of exposure-based methods
+
 Non-pharmacological therapies for Generalised Anxiety Disorder are normally described under the umbrella term of Cognitive Behavioural Therapy (CBT). The most common approaches are:
 •	Imaginal Exposure Therapy
 •	Stress Inoculation Training
 •	Eye Movement Desensitization and Reprocessing
-There are several methods employed to assess GAD severity including structured interviews and self-report questionnaires. In this experiment, the severity of the anxiety disorder was assessed using self-report (i.e., State-Trait Anxiety Inventory (6) and Generalized Anxiety Disorder 7-item scale (7)) mechanisms. Both measurements are scaled to the range of 0 to 10.
 
-##Experiment Details
+## Experiment design
+
 Data from a study are presented that investigated the effect of VR exposure therapy, conducted in a virtual reality environment, on psychotherapy patients undergoing treatment for GAD.
 The study consisted of 180 patients (M=96, F=84) in total, divided into the groups listed below. The participants were randomly sampled from the clinic client list and randomly assigned to one of two groups below:
+
 •	Control (traditional CBT, no VR) (M=48, F=42)
 •	Experimental (VR-based therapy) (M=48, F=42)
+
 All patients were adults in the age range of 18 - 40 years. Information on the exact age of participants was not recorded. Gender information was recorded. All groups were of equal size. The two groups underwent 12 weeks of treatment for 50 minutes per week with a therapist. During that time the patients either underwent traditional CBT or used the VR app. GAD measurements for all groups were measured using the two self-report mechanisms outlined above. Measurements were taken at the start and end of the study
 
+
+## Data gathering
+
+There are several methods employed to assess GAD severity including structured interviews and self-report questionnaires. In this experiment, the severity of the anxiety disorder was assessed using self-report (i.e., State-Trait Anxiety Inventory (6) and Generalized Anxiety Disorder 7-item scale (7)) mechanisms. Both measurements are scaled to the range of 0 to 10.
+
+#Method
+
+##Screening Criteria
+
+##Inclusion Criteria
+
+##Results
+
+##Discussion
+
+##Conclusion
