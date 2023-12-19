@@ -47,5 +47,110 @@ Experimental <- Experimental %>%
   mutate(gender = ifelse(gender == "F" | gender == "f", "female", gender))
 tibble(Experimental)
 
-print(Experimental)
+Control$pretrial_GAD <- as.numeric(Control$pretrial_GAD)
+Control$pretrial_STAI <- as.numeric(Control$pretrial_STAI)
+Control$posttrial_GAD <- as.numeric(Control$posttrial_GAD)
+Control$posttrial_STAI <- as.numeric(Control$posttrial_STAI)
 
+Experimental$pretrial_GAD <- as.numeric(Experimental$pretrial_GAD)
+Experimental$pretrial_STAI <- as.numeric(Experimental$pretrial_STAI)
+Experimental$posttrial_GAD <- as.numeric(Experimental$posttrial_GAD)
+Experimental$posttrial_STAI <- as.numeric(Experimental$posttrial_STAI)
+
+
+Experimental_summary_table <- Experimental(
+  Statistic = c("n1", "Minimum", "Maximum", "1st Quartile", "Median", "3rd Quartile", "Mean", "Variance (n-1)", "Standard deviation (n-1)"),
+  pretrial_GAD = c(
+    length(Experimental$pretrial_GAD),
+    min(Experimental$pretrial_GAD),
+    max(Experimental$pretrial_GAD),
+    quantile(Experimental$pretrial_GAD, 0.25),
+    median(Experimental$pretrial_GAD),
+    quantile(Experimental$pretrial_GAD, 0.75),
+    mean(Experimental$pretrial_GAD),
+    var(Experimental$pretrial_GAD),
+    sd(Experimental$pretrial_GAD, na.rm = TRUE)
+  ),
+  pretrial_STAI = c(
+    length(Experimental$pretrial_STAI),
+    min(Experimental$pretrial_STAI),
+    max(Experimental$pretrial_STAI),
+    quantile(Experimental$pretrial_STAI, 0.25),
+    median(Experimental$pretrial_STAI),
+    quantile(Experimental$pretrial_STAI, 0.75),
+    mean(Experimental$pretrial_STAI),
+    var(Experimental$pretrial_STAI),
+    sd(Experimental$pretrial_STAI, na.rm = TRUE)
+  ),
+  posttrial_GAD = c(
+    length(Experimental$posttrial_GAD),
+    min(Experimental$posttrial_GAD),
+    max(Experimental$posttrial_GAD),
+    quantile(Experimental$posttrial_GAD, 0.25),
+    median(Experimental$posttrial_GAD),
+    quantile(Experimental$posttrial_GAD, 0.75),
+    mean(Experimental$posttrial_GAD),
+    var(Experimental$posttrial_GAD),
+    sd(Experimental$posttrial_GAD, na.rm = TRUE)
+  ),
+  posttrial_STAI = c(
+    length(Experimental$posttrial_STAI),
+    min(Experimental$posttrial_STAI),
+    max(Experimental$posttrial_STAI),
+    quantile(Experimental$posttrial_STAI, 0.25),
+    median(Experimental$posttrial_STAI),
+    quantile(Experimental$posttrial_STAI, 0.75),
+    mean(Experimental$posttrial_STAI),
+    var(Experimental$posttrial_STAI),
+    sd(Experimental$posttrial_STAI, na.rm = TRUE)
+  )
+)
+
+Control_summary_table_ <- Control(
+  Statistic = c("Nbr. of observations", "Minimum", "Maximum", "1st Quartile", "Median", "3rd Quartile", "Mean", "Variance (n-1)", "Standard deviation (n-1)"),
+  pretrial_GAD = c(
+    length(Control$pretrial_GAD),
+    min(Control$pretrial_GAD),
+    max(Control$pretrial_GAD),
+    quantile(Control$pretrial_GAD, 0.25),
+    median(Control$pretrial_GAD),
+    quantile(Control$pretrial_GAD, 0.75),
+    mean(Control$pretrial_GAD),
+    var(Control$pretrial_GAD),
+    sd(Control$pretrial_GAD, na.rm = TRUE)
+  ),
+  pretrial_STAI = c(
+    length(Control$pretrial_STAI),
+    min(Control$pretrial_STAI),
+    max(Control$pretrial_STAI),
+    quantile(Control$pretrial_STAI, 0.25),
+    median(Control$pretrial_STAI),
+    quantile(Control$pretrial_STAI, 0.75),
+    mean(Control$pretrial_STAI),
+    var(Control$pretrial_STAI),
+    sd(Control$pretrial_STAI, na.rm = TRUE)
+  ),
+  posttrial_GAD = c(
+    length(Control$posttrial_GAD),
+    min(Control$posttrial_GAD),
+    max(Control$posttrial_GAD),
+    quantile(Control$posttrial_GAD, 0.25),
+    median(Control$posttrial_GAD),
+    quantile(Control$posttrial_GAD, 0.75),
+    mean(Control$posttrial_GAD),
+    var(Control$posttrial_GAD),
+    sd(Control$posttrial_GAD, na.rm = TRUE)
+  ),
+  posttrial_STAI = c(
+    length(Control$posttrial_STAI),
+    min(Control$posttrial_STAI),
+    max(Control$posttrial_STAI),
+    quantile(Control$posttrial_STAI, 0.25),
+    median(Control$posttrial_STAI),
+    quantile(Control$posttrial_STAI, 0.75),
+    mean(Control$posttrial_STAI),
+    var(Control$posttrial_STAI),
+    sd(Control$posttrial_STAI, na.rm = TRUE)
+  )
+)
+print(summary_table_control)
