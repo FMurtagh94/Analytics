@@ -23,7 +23,7 @@ Control <- read.csv("GROUP_9_2023_GCA_RESULTS_CONTROL.csv")
 
 #Cleaning Control Group
 Control <- Control %>%
-select(patientID, gender, pretrial_GAD, pretrial_STAI, posttrial_GAD, posttrial_STAI) %>%
+  select(patientID, gender, pretrial_GAD, pretrial_STAI, posttrial_GAD, posttrial_STAI) %>%
   filter(pretrial_GAD >= 0, pretrial_GAD <= 21,
          pretrial_STAI >= 20, pretrial_STAI <= 80,
          posttrial_GAD >= 0, posttrial_GAD <= 21,
@@ -158,11 +158,12 @@ Control_summary_table <- tibble(
 
 ##Shapiro test for normal distribution on experimental
 
-Experimental <- rnorm(88)
+#Experimental <- rnorm(88)
+Experimental_Norm_Distribution <- rnorm(88)
 
 
 # Perform Shapiro-Wilk test
-shapiro_test_result <- shapiro.test(Experimental)
+shapiro_test_result <- shapiro.test(Experimental_Norm_Distribution)
 
 # Print the result
 print(shapiro_test_result)
@@ -179,11 +180,11 @@ if (p_value < 0.05) {
 
 ##Shapiro test for normal distribution on  control
 
-Control <- rnorm(85)
+Control_Norm_Distribution <- rnorm(85)
 
 
 # Perform Shapiro-Wilk test 
-shapiro_test_result <- shapiro.test(Control)
+shapiro_test_result <- shapiro.test(Control_Norm_Distribution)
 
 # Print the result
 print(shapiro_test_result)
@@ -221,4 +222,61 @@ cat("\nWelch's t-test for posttrial_STAI:\n")
 print(t_test_posttrial_STAI)
 
 
-#both the Welch test for posttrial GAD & STAI support the alternative hypothesis which means that VR(Experimental) has delivered a statistical reduction in both GAD and STAI scales.  
+#both the Welch test for posttrial GAD & STAI support the alternative hypothesis which means that VR(Experimental) has delivered a statistical reduction in both GAD and STAI scales.
+
+#Spearman's R Correlation
+
+#Experimental GAD
+cor.test(Experimental$pretrial_GAD, Experimental$posttrial_GAD, method = "spearman", exact = FALSE)
+#Experimental STAI
+cor.test(Experimental$pretrial_STAI, Experimental$posttrial_STAI, method = "spearman", exact = FALSE)
+
+#Control GAD
+cor.test(Control$pretrial_GAD, Control$posttrial_GAD, method = "spearman", exact = FALSE)
+#Controll STAI
+cor.test(Control$pretrial_STAI, Control$posttrial_STAI, method = "spearman", exact = FALSE)
+
+
+
+
+#Graphs ----
+
+#ggplot(Experimental) +
+#  aes(x = pretrial_GAD, y = posttrial_GAD) +
+#  geom_point(colour = "RED")
+
+#STAI on Scatter Plot
+
+#Control
+
+#ggplot(Control) +
+#  aes(x = pretrial_STAI, y = posttrial_STAI) +
+#  geom_point(colour = "Control STAI")
+plot(Control$pretrial_STAI, Control$posttrial_STAI, main = "Test", col="RED")
+abline(lm(Control$posttrial_STAI~Control$pretrial_STAI))
+
+#Experimental
+plot(Experimental$pretrial_STAI, Experimental$posttrial_STAI, main = "Test", col="RED")
+abline(lm(Experimental$posttrial_STAI~Experimental$pretrial_STAI))
+
+#Bar Charts GAD
+
+#Control
+testTable1 <- table(Control$patientID, Control$pretrial_GAD)
+barplot(testTable1, main = "Con Groups's Post GAD Scores", xlab = "GAD Score",
+        col = "Red")
+
+
+testTable2 <- table(Experimental$patientID, Experimental$pretrial_GAD)
+barplot(testTable2, main = "Exp Groups's Post GAD Scores", xlab = "GAD Score",
+        col = "Red")
+
+#Experimental
+#barplot((Experimental$gender, Experimental$posttrial_GAD), main = "Exp Groups's Post GAD Scores", xlab = "GAD Score",
+        #col = c("Green", "Red"))#, legend = rownames(counts))
+
+
+
+
+
+
