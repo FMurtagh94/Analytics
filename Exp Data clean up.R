@@ -274,7 +274,7 @@ barplot(testTable2, main = "Exp Groups's Post GAD Scores", xlab = "GAD Score",
 #Experimental
 #barplot((Experimental$gender, Experimental$posttrial_GAD), main = "Exp Groups's Post GAD Scores", xlab = "GAD Score",
         #col = c("Green", "Red"))#, legend = rownames(counts))
-
+   
 
 
 
