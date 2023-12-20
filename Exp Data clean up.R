@@ -17,8 +17,8 @@ if (!require("magrittr"))
   install.packages("magrittr")
 library(magrittr)
 
-Experimental <- read.csv("GROUP_9_2023_GCA_RESULTS_EXPERIMENTAL.csv")
-Control <- read.csv("GROUP_9_2023_GCA_RESULTS_CONTROL.csv")
+Experimental <- read.csv("CSV_Files/GROUP_9_2023_GCA_RESULTS_EXPERIMENTAL.csv")
+Control <- read.csv("CSV_Files/GROUP_9_2023_GCA_RESULTS_CONTROL.csv")
 #Cleaning up the data based on GAD and STAI ranges 
 
 #Cleaning Control Group
@@ -252,31 +252,37 @@ cor.test(Control$pretrial_STAI, Control$posttrial_STAI, method = "spearman", exa
 #ggplot(Control) +
 #  aes(x = pretrial_STAI, y = posttrial_STAI) +
 #  geom_point(colour = "Control STAI")
-plot(Control$pretrial_STAI, Control$posttrial_STAI, main = "Test", col="RED")
+plot(Control$pretrial_STAI, Control$posttrial_STAI, main = "Control STAI", col="RED")
 abline(lm(Control$posttrial_STAI~Control$pretrial_STAI))
 
 #Experimental
-plot(Experimental$pretrial_STAI, Experimental$posttrial_STAI, main = "Test", col="RED")
+plot(Experimental$pretrial_STAI, Experimental$posttrial_STAI, main = "Experimental STAI", col="RED")
 abline(lm(Experimental$posttrial_STAI~Experimental$pretrial_STAI))
 
-#Bar Charts GAD
+#Bar Charts STAI
 
 #Control
-testTable1 <- table(Control$patientID, Control$pretrial_GAD)
+testTable1 <- table(Control$patientID, Control$pretrial_STAI)
 barplot(testTable1, main = "Con Groups's Post GAD Scores", xlab = "GAD Score",
         col = "Red")
 
 
-testTable2 <- table(Experimental$patientID, Experimental$pretrial_GAD)
+testTable2 <- table(Experimental$gender, Experimental$pretrial_STAI)
 barplot(testTable2, main = "Exp Groups's Post GAD Scores", xlab = "GAD Score",
         col = "Red")
 
 #Experimental
 #barplot((Experimental$gender, Experimental$posttrial_GAD), main = "Exp Groups's Post GAD Scores", xlab = "GAD Score",
         #col = c("Green", "Red"))#, legend = rownames(counts))
-   
 
+Control_Mean_STAI_Post = mean(Control$posttrial_STAI)
+Experimental_Mean_STAI_Post = mean(Experimental$posttrial_STAI)
 
+means <- c(Control_Mean_STAI_Post, Experimental_Mean_STAI_Post)
+tags <- c("STAI", "STAI")
 
+meanAvg <- table(means, tags)
+
+barplot(meanAvg, main = "Means of STAI in Con & Exp", xlab = "Exp & Con", col = c("Green", "Red"), legend = rownames(meanAvg))
 
 
