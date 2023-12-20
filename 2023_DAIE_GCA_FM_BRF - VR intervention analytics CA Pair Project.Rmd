@@ -40,6 +40,8 @@ There are several methods employed to assess GAD severity including structured i
 
 ##Screening Criteria
 
+To ensure the accuracy of the results, the data was cleaned using the GAD (0-21) and STAI (20-80) score ranges. Any score outside of the screening range were removed. As a result  7 patient responses were excluded, 5 from the Control study and 2 from the Experimental study. 
+
 ##Inclusion Criteria
 
 ##Results
@@ -47,3 +49,5 @@ There are several methods employed to assess GAD severity including structured i
 ##Discussion
 
 ##Conclusion
+
+

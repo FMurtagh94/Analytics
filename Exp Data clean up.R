@@ -19,7 +19,7 @@ library(magrittr)
 
 Experimental <- read.csv("GROUP_9_2023_GCA_RESULTS_EXPERIMENTAL.csv")
 Control <- read.csv("GROUP_9_2023_GCA_RESULTS_CONTROL.csv")
-#Cleaning up the data based on GAD and STAI ranges only outliers found in Posttrial STAI.
+#Cleaning up the data based on GAD and STAI ranges 
 
 #Cleaning Control Group
 Control <- Control %>%
