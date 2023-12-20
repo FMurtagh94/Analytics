@@ -200,11 +200,11 @@ if (p_value < 0.05) {
 
 # as n1>n2 (n1≠n2) unable to do paired sample test. Using Welch t-test
 
-
+#data pulled from Experimental Summary Table
 Experimental_posttrial_GAD <- c(5.000000, 20.000000, 9.000000, 12.000000, 14.000000, 11.954545, 11.584117, 3.403545)
 Experimental_posttrial_STAI <- c(45.000000, 72.000000, 53.000000, 59.000000, 63.000000, 58.26136, 49.43665, 7.03112)
 
-
+#data pulled from Control Summary Table
 Control_posttrial_GAD <- c(9.000000, 21.000000, 14.000000, 16.000000, 18.000000, 15.917647, 8.862185, 2.976942)
 Control_posttrial_STAI <- c(46.000000, 74.000000, 58.000000, 62.000000, 67.000000, 61.823529, 39.408964, 6.277656)
 
