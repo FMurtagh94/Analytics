@@ -155,5 +155,48 @@ Control_summary_table <- tibble(
     sd(Control$posttrial_STAI, na.rm = TRUE)
   )
 )
-print(summary_table_control)
+
+##Shapiro test for normal distribution on experimental
+
+Experimental <- rnorm(88)
+
+
+# Perform Shapiro-Wilk test
+shapiro_test_result <- shapiro.test(Experimental)
+
+# Print the result
+print(shapiro_test_result)
+
+# Extract p-value
+p_value <- shapiro_test_result$p.value
+
+# Check for normality at a significance level of 0.05
+if (p_value < 0.05) {
+  cat("Reject the null hypothesis.The data is not normally distributed")
+} else {
+  cat("Failed to reject the null hypothesis. The data follows a normal distribution")
+}
+
+##Shapiro test for normal distribution on  control
+
+Control <- rnorm(85)
+
+
+# Perform Shapiro-Wilk test 
+shapiro_test_result <- shapiro.test(Control)
+
+# Print the result
+print(shapiro_test_result)
+
+# Extract p-value
+p_value <- shapiro_test_result$p.value
+
+# Check for normality at a significance level of 0.05
+if (p_value < 0.05) {
+  cat("Reject the null hypothesis.The data is not normally distributed")
+} else {
+  cat("Failed to reject the null hypothesis. The data follows a normal distribution")
+}
+
+
 
